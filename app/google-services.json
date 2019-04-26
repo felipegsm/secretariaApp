@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "594168695588",
+    "firebase_url": "https://secretaria-app.firebaseio.com",
+    "project_id": "secretaria-app",
+    "storage_bucket": "secretaria-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594168695588:android:6e851d195822a751",
+        "android_client_info": {
+          "package_name": "com.example.secretariaapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "594168695588-03dnm3jhr11d9jbc4h75srallg20hs9h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.secretariaapp",
+            "certificate_hash": "405e795eb4cbafae6cce59b0c565db0026578eb4"
+          }
+        },
+        {
+          "client_id": "594168695588-735tkhasuidp1nnctn07l5cl65om92ce.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXM2_HEtVsmTZCfHXOsGxWhRnvRGAJD58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "594168695588-735tkhasuidp1nnctn07l5cl65om92ce.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
