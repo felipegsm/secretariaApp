@@ -29,6 +29,7 @@ import android.view.View
 import android.widget.*
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -42,6 +43,8 @@ class MainActivity : AppCompatActivity() {
 
     private val storage = FirebaseStorage.getInstance()
     private val storageRef = storage.reference
+
+    private val mAuth = FirebaseAuth.getInstance()
 
     private lateinit var fusedLocationClient: FusedLocationProviderClient
     private val RECORD_REQUEST_CODE = 101
@@ -92,6 +95,9 @@ class MainActivity : AppCompatActivity() {
             val dataHora = editDataHora.text.toString()
             val nome = editNome.text.toString()
             val email = editEmail.text.toString()
+            val userId = mAuth.currentUser!!.uid
+            val status = "Em aberto"
+            val parecer = ""
 
             val bitmap = (imgRegistro.drawable as BitmapDrawable).bitmap
             val baos = ByteArrayOutputStream()
@@ -110,7 +116,7 @@ class MainActivity : AppCompatActivity() {
                 anexoRef.downloadUrl.addOnSuccessListener {
                     val imgUrl = it.toString()
                     val id = myRef.push().key
-                    val registro = Registro(id!!, endereco, dataHora, nome, email, imgUrl)
+                    val registro = Registro(id!!, endereco, dataHora, nome, email, imgUrl, userId, status, parecer)
 
                     progressBar.visibility = View.GONE
                     val builder = AlertDialog.Builder(this@MainActivity)

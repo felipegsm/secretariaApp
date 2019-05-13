@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CadastroActivity">
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="vertical" android:gravity="center">
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPersonName"
+                    android:ems="10"
+                    android:id="@+id/cdNome" android:layout_marginTop="40dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp" android:hint="Nome"/>
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="phone"
+                    android:ems="10"
+                    android:id="@+id/cdTelefone"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp" android:layout_marginTop="44dp"
+                    android:hint="Telefone"/>
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textEmailAddress"
+                    android:ems="10"
+                    android:id="@+id/cdEmail"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp" android:layout_marginTop="44dp"
+                    android:hint="Email"/>
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:ems="10"
+                    android:id="@+id/cdSenha"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp" android:layout_marginTop="44dp"
+                    android:hint="Senha"/>
+            <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:ems="10"
+                    android:id="@+id/cdConfirmar"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp" android:layout_marginTop="44dp"
+                    android:hint="Confirmar Senha"/>
+            <Button
+                    android:text="Cadastrar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnCadastro" android:layout_marginLeft="8dp"
+                    android:layout_marginStart="8dp" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp" android:layout_marginTop="52dp"
+            />
+        </LinearLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>
