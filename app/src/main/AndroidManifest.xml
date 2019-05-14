@@ -16,6 +16,10 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".RegistroActivity">
+        </activity>
+        <activity android:name=".ListaRegistros">
+        </activity>
         <activity android:name=".EditarPerfil">
         </activity>
         <activity android:name=".PerfilActivity">

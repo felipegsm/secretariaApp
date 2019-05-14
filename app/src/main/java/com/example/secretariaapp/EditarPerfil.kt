@@ -76,7 +76,7 @@ class EditarPerfil : AppCompatActivity() {
 
             if(!TextUtils.isEmpty(edSenha.text)){
                 if(edSenha.text.toString() != edConfSenha.text.toString()){
-                    Toast.makeText(this, "As senhas precisam ser iguais, caso desista de alterar deixe em branco!", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "As senhas precisam ser iguais! Caso desista de alterar, deixe em branco!", Toast.LENGTH_SHORT).show()
                     can = false
                 }else{
                     can = true

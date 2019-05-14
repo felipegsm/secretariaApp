@@ -19,6 +19,7 @@ class PerfilActivity : AppCompatActivity() {
     private lateinit var btnLogout: Button
     private lateinit var btnCriarRegistro: Button
     private lateinit var btnEditarPerfil: Button
+    private lateinit var btnListaRegistros: Button
 
     private val mDatabase = FirebaseDatabase.getInstance()
     private val mDatabaseReference = mDatabase.reference.child("Usuarios")
@@ -39,6 +40,7 @@ class PerfilActivity : AppCompatActivity() {
         btnLogout = findViewById(R.id.btnSair)
         btnCriarRegistro = findViewById(R.id.btnNovoRegistro)
         btnEditarPerfil = findViewById(R.id.btnEditarPerfil)
+        btnListaRegistros = findViewById(R.id.btnRegistros)
 
         btnLogout.setOnClickListener{
             mAuth.signOut()
@@ -54,6 +56,11 @@ class PerfilActivity : AppCompatActivity() {
 
         btnEditarPerfil.setOnClickListener {
             val intent = Intent(this, EditarPerfil::class.java)
+            startActivity(intent)
+        }
+
+        btnListaRegistros.setOnClickListener {
+            val intent = Intent(this, ListaRegistros::class.java)
             startActivity(intent)
         }
     }

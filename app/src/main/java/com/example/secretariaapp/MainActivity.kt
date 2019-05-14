@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
                     val geocoder = Geocoder(this, Locale.getDefault())
                     val enderecos: List<Address> = geocoder.getFromLocation(location.latitude, location.longitude, 1)
                     editEnd.text = Editable.Factory.getInstance().newEditable(enderecos[0].thoroughfare + ", " + enderecos[0].subThoroughfare + ". " + enderecos[0].subLocality)
-                    Toast.makeText(this, editEnd.text, Toast.LENGTH_LONG)
+                    //Toast.makeText(this, editEnd.text, Toast.LENGTH_LONG)
                 }
 
             }
