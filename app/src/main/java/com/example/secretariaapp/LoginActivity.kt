@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
@@ -16,6 +17,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var edtSenha: EditText
     private lateinit var btnEntrar: Button
     private lateinit var btnCadastrar: Button
+    private lateinit var txtEsqueciSenha: TextView
 
     private lateinit var email: String
     private lateinit var senha: String
@@ -38,9 +40,15 @@ class LoginActivity : AppCompatActivity() {
         edtSenha = findViewById(R.id.edtSenha)
         btnEntrar = findViewById(R.id.btnEntrar)
         btnCadastrar = findViewById(R.id.btnCadastrar)
+        txtEsqueciSenha = findViewById(R.id.txtEsqueci)
 
         btnCadastrar.setOnClickListener{
             val intent = Intent(this, CadastroActivity::class.java)
+            startActivity(intent)
+        }
+
+        txtEsqueciSenha.setOnClickListener {
+            val intent = Intent(this, EsqueciSenha::class.java)
             startActivity(intent)
         }
 

@@ -30,6 +30,9 @@ import android.widget.*
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.storage.FirebaseStorage
 import java.io.ByteArrayOutputStream
 import java.io.File
@@ -38,8 +41,8 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val databaseRegistro = FirebaseDatabase.getInstance()
-    private val myRef = databaseRegistro.getReference("registros")
+    private val databaseRegistro = FirebaseDatabase.getInstance().getReference("registros")
+    private val databaseUsuario = FirebaseDatabase.getInstance().getReference("Usuarios")
 
     private val storage = FirebaseStorage.getInstance()
     private val storageRef = storage.reference
@@ -87,6 +90,20 @@ class MainActivity : AppCompatActivity() {
         val currentDate = sdf.format(Date())
 
         editDataHora.text = Editable.Factory.getInstance().newEditable(currentDate)
+        //editEmail.text = Editable.Factory.getInstance().newEditable(myUserRef.child(mAuth.currentUser!!.uid).child("email").value)
+
+        val mUser = mAuth.currentUser
+        val mUserRef = databaseUsuario.child(mUser!!.uid)
+
+        mUserRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(p0: DataSnapshot) {
+                editEmail.text = Editable.Factory.getInstance().newEditable(p0.child("email").value as String)
+                editNome.text = Editable.Factory.getInstance().newEditable(p0.child("nome").value as String)
+            }
+
+            override fun onCancelled(p0: DatabaseError) {
+            }
+        })
 
         btnEnviar.setOnClickListener {
 
@@ -115,7 +132,7 @@ class MainActivity : AppCompatActivity() {
             }.addOnSuccessListener {
                 anexoRef.downloadUrl.addOnSuccessListener {
                     val imgUrl = it.toString()
-                    val id = myRef.push().key
+                    val id = databaseRegistro.push().key
                     val registro = Registro(id!!, endereco, dataHora, nome, email, imgUrl, userId, status, parecer)
 
                     progressBar.visibility = View.GONE
@@ -129,9 +146,8 @@ class MainActivity : AppCompatActivity() {
                         }
                     builder.show()
 
-                    myRef.child(id).setValue(registro).addOnFailureListener {
+                    databaseRegistro.child(id).setValue(registro).addOnFailureListener {
                         it.printStackTrace()
-
                     }
                 }
             }

@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">SecretariaApp</string>
     <string name="pick_image_intent_text">Select Image</string>
+    <string name="informe_o_seu_nome">Informe o seu nome...</string>
 </resources>
